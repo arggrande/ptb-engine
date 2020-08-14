@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import Post from './components/Post';
+import PostService from './services/postService';
+
 import './App.css';
+import { PostModel } from './models/PostModel';
 
 function App() {
+  // why doesnt importing above auto-instanciate like this?
+  let service: PostService = new PostService();
+  let posts: PostModel[] = service.getPosts();
+  
+  console.log(posts);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. lol
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Post title={posts[0].title} body={posts[0].body}/>
   );
 }
 

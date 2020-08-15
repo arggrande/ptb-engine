@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Post.css'
 interface PostProps {
     imageUri?: string;
     title: string;
@@ -9,7 +9,7 @@ interface PostProps {
 function Post(props: PostProps) {
 
     return (
-        <article>
+        <article className='article' >
             <h3>{props.title}</h3>
             <p>{props.body}</p>
         </article>

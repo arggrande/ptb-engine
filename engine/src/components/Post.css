@@ -1,0 +1,7 @@
+.article {
+    display: grid flex;
+    grid-template-columns: auto;
+    grid-template-rows: 20% auto;
+
+    padding: 20px;
+}

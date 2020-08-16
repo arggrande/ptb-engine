@@ -7,6 +7,20 @@
   pointer-events: none;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 25% auto;
+  max-height: 100%;
+}
+
+.columnOne {
+  grid-column: 1;
+}
+
+.columnTwo {
+  grid-column: 2;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -36,3 +50,5 @@
     transform: rotate(360deg);
   }
 }
+
+* { outline: 1px solid green !important; }

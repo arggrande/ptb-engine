@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: initial;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  flex-direction: inherit;
+  flex-grow: inherit;
+}
+
+.navigation {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  border: 2px solid #d4a259;
+  display: block;
+  border-radius: 100%;
+}

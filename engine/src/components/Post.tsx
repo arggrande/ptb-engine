@@ -1,10 +1,5 @@
 import React from 'react';
 import './Post.css'
-interface PostProps {
-    imageUri?: string;
-    title: string;
-    body: string;
-}
 
 function Post(props: PostProps) {
 
@@ -15,6 +10,12 @@ function Post(props: PostProps) {
         </article>
         
     )
+}
+
+interface PostProps {
+    imageUri?: string;
+    title: string;
+    body: string;
 }
 
 export default Post;

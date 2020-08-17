@@ -7,14 +7,14 @@ export default function Sidebar(sidebarProps: SidebarProps) {
         <div className='container'>
             <img className='logo' src={sidebarProps.avatarUri} alt='Avatar' />
             <div className='titleBlock'>
-                <span>{sidebarProps.title}</span>
-                <span>{sidebarProps.subText}</span>
+                <span className='title'>{sidebarProps.title}</span>
+                <span className='subText'>{sidebarProps.subText}</span>
             </div>
             <div className='navigation'>
-                <span>Home</span>
-                <span>About</span>
+                <span className='navlink'>Home</span>
+                <span className='navlink'>About</span>
             </div>
-            <img src={sidebarProps.twitterBioUri} alt='Twitter Bio'/>
+            <img className='twitter' src={sidebarProps.twitterBioUri} alt='Twitter Bio'/>
         </div>
     );
 }

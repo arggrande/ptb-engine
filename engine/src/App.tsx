@@ -13,7 +13,7 @@ function App() {
   let posts: PostModel[] = service.getPosts();
   
   return (
-    <div className='container'>
+    <div className='mainContainer'>
       <div className='columnOne'>
         <Sidebar title='Pending Technical' subText='A Programmers Life' avatarUri={logo} twitterBioUri='https://pendingtechnical.com' />
       </div>

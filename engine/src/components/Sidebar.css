@@ -1,24 +1,66 @@
 .container {
   display: flex;
   flex-direction: column;
-  flex-grow: initial;
+  height: 100%;
+  background: #1d1d1d;
+}
+
+.logo {
+  border: 2px solid #d4a259;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  order: 1;
+  margin: 50px;
+  align-self: center;
 }
 
 .titleBlock {
   display: flex;
   flex-direction: column;
-  flex-direction: inherit;
-  flex-grow: inherit;
+  order: 2;
+  align-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 20pt;
+  align-self: center;
+  font-family: 'Crimson Text SemiBold';
+  font-weight: 600;
+  font-size: 1.3333rem;
+  line-height: 1.2;
+}
+
+.subText {
+  color: #666;
+  align-self: center;
+  font-size: small;
+  text-transform: uppercase;
 }
 
 .navigation {
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  order: 3;
+  margin: 20px;
 }
 
-.logo {
-  border: 2px solid #d4a259;
-  display: block;
+.navlink {
+  border-top: 1px solid #333;
+  color: #666;
+  padding: 0.8em 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Karla';
+  font-size: 0.77778rem;
+
+}
+
+.twitter {
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
+  order: 4;
 }

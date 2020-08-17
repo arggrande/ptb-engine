@@ -11,8 +11,7 @@
   display: grid;
   grid-template-columns: 25% auto;
   grid-template-rows: auto;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
 }
 
 .columnOne {

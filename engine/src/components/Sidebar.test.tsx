@@ -8,7 +8,6 @@ test('renders Sidebar component with correct data set', () => {
     
 
   expect(getByAltText('Avatar')).toBeInTheDocument();
-  expect(getByAltText('Twitter Bio')).toBeInTheDocument();
 
   // todo: simulate clicking the avatar and twitter links takes me somewhere
 });

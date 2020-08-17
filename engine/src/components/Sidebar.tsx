@@ -14,7 +14,9 @@ export default function Sidebar(sidebarProps: SidebarProps) {
                 <span className='navlink'>Home</span>
                 <span className='navlink'>About</span>
             </div>
-            <img className='twitter' src={sidebarProps.twitterBioUri} alt='Twitter Bio'/>
+            <div className='twitter'>
+                <span className="fab fa-twitter fa-sm icon" ></span>
+            </div>
         </div>
     );
 }

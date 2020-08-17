@@ -15,7 +15,7 @@ function App() {
   return (
     <div className='mainContainer'>
       <div className='columnOne'>
-        <Sidebar title='Pending Technical' subText='A Programmers Life' avatarUri={logo} twitterBioUri='https://pendingtechnical.com' />
+        <Sidebar title='Pending Technical' subText='A Programmers Life' avatarUri={logo} twitterBioUri='https://twitter.com/arggrande' />
       </div>
 
       <div className='columnTwo'>

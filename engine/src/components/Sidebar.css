@@ -71,11 +71,13 @@
 }
 
 .icon {
-  
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-self: center;
   color: #666;
+}
 
+.icon:hover {
+  color: orange;
 }

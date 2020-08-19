@@ -15,7 +15,7 @@ export default function Sidebar(props: SidebarProps) {
                 <span className='navlink'>About</span>
             </div>
             <div className='twitter'>
-                <a href={props.twitterBioUri} target='_blank' style={{textDecoration: 'none'}}><span className="fab fa-twitter fa-sm icon" ></span></a>
+                <a href={props.twitterBioUri} target='_blank' rel='noopener noreferrer' style={{textDecoration: 'none'}}><span className="fab fa-twitter fa-sm icon" ></span></a>
             </div>
         </div>
     );

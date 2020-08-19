@@ -9,7 +9,7 @@
 
 .mainContainer {
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 300px auto;
   grid-template-rows: auto;
   min-height: 100vh;
 }

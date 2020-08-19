@@ -11,7 +11,7 @@
   width: 100px;
   border-radius: 100%;
   order: 1;
-  margin: 50px;
+  margin: 60px;
   align-self: center;
 }
 
@@ -26,17 +26,19 @@
   color: white;
   font-size: 20pt;
   align-self: center;
-  font-family: 'Crimson Text SemiBold';
+  font-family: 'Crimson Text';
   font-weight: 600;
-  font-size: 1.3333rem;
+  font-size: 1.5rem;
   line-height: 1.2;
 }
 
 .subText {
   color: #666;
   align-self: center;
-  font-size: small;
+  font-size: x-small;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding-top: 5px;
 }
 
 .navigation {
@@ -45,16 +47,21 @@
   flex-direction: column;
   order: 3;
   margin: 20px;
+  letter-spacing: 0.15em;
+  font-size: 0.777778rem;
+  border-bottom: 1px solid #333;
 }
 
 .navlink {
   border-top: 1px solid #333;
-  color: #666;
+  border-collapse: collapse;
+  color: #aaa;
   padding: 0.8em 0;
   width: 100%;
   text-align: center;
   font-family: 'Karla';
-  font-size: 0.77778rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 
 }
 

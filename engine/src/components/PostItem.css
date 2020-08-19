@@ -1,0 +1,28 @@
+
+.postItemContainer {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  margin-left: 190px;
+  margin-top: 80px;
+  margin-right: 190px;
+}
+
+.postDate {
+  color: #aaa;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-family: 'Karla';
+}
+
+.postTitle {
+  font-size: 1.6rem;
+  font-family: 'Crimson Text'
+}
+
+.postBody {
+    text-overflow: ellipsis;
+    max-height: 200px;
+    overflow: hidden;
+
+}

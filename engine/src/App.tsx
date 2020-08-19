@@ -1,8 +1,8 @@
 import React from 'react';
-import Post from './components/Post';
 import PostService from './services/postService';
 import { PostModel } from './models/PostModel';
 import Sidebar from './components/Sidebar';
+import PostItem from './components/PostItem';
 
 import logo from './assets/pt-logo.jpg'
 import './App.css';
@@ -19,7 +19,12 @@ function App() {
       </div>
 
       <div className='columnTwo'>
-        <Post title={posts[0].title} body={posts[0].body}/>
+        {
+          posts.map(f => {
+            return <PostItem date='2020-01-01' title={f.title} postText={f.body} />
+          })
+        }
+        
       </div>
     </div>
   );

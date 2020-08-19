@@ -21,7 +21,7 @@ function App() {
       <div className='columnTwo'>
         {
           posts.map(f => {
-            return <PostItem date='2020-01-01' title={f.title} postText={f.body} />
+            return <PostItem date={f.date} title={f.title} body={f.body} key={f.id} />
           })
         }
         

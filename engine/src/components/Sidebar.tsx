@@ -11,7 +11,7 @@ export default function Sidebar(props: SidebarProps) {
                 <span className='subText'>{props.subText}</span>
             </div>
             <div className='navigation'>
-                <span className='navlink'>Home</span>
+                <span className='navlink selected'>Home</span>
                 <span className='navlink'>About</span>
             </div>
             <div className='twitter'>

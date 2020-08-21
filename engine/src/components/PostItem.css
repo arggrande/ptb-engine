@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #eee;
-  margin-left: 190px;
+  margin-left: 235px;
   margin-top: 80px;
   margin-right: 190px;
+  max-width: 720px;
 }
 
 .postDate {
@@ -28,27 +29,4 @@
     font-family: 'Karla';
     line-height: 1.67em;
 
-}
-
-.truncate {
-  --max-lines: 3;
-  position: relative;
-  max-height: calc(var(--lh) * var(--max-lines));
-  overflow: hidden;
-  padding-right: 1rem;
-}
-
-.fade {
-  position: relative;
-  height: 3.6em; /* exactly three lines */
-}
-.fade:after {
-  content: "";
-  text-align: right;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 70%;
-  height: 1.5em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }

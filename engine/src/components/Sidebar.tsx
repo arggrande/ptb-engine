@@ -1,7 +1,19 @@
 import React from 'react'
 import './Sidebar.css'
+import { Link } from '@reach/router';
 
 export default function Sidebar(props: SidebarProps) {
+
+    const NavLink = (props: any) => <Link 
+        {...props}
+        getProps={({ isCurrent }) => {
+            return {
+                style: {
+                    color: isCurrent ? '#d4a259' : '#333'
+                }
+            }
+        }}
+    />
 
     return (
         <div className='container'>
@@ -11,9 +23,9 @@ export default function Sidebar(props: SidebarProps) {
                 <span className='subText'>{props.subText}</span>
             </div>
             <div className='navigation'>
-                <a href='/' className='navlink selected'>Home</a>
-                <a href='/about' className='navlink'>About</a>
-                <a href='/new' className='navlink'>New</a>
+                <NavLink className='navlink' to='/'>Home</NavLink>
+                <NavLink className='navlink' to='/about'>About</NavLink>
+                <NavLink className='navlink' to='/new'>New</NavLink>
             </div>
             <div className='twitter'>
                 <a href={props.twitterBioUri} target='_blank' rel='noopener noreferrer' style={{textDecoration: 'none'}}><span className="fab fa-twitter fa-sm icon" ></span></a>

@@ -11,8 +11,9 @@ export default function Sidebar(props: SidebarProps) {
                 <span className='subText'>{props.subText}</span>
             </div>
             <div className='navigation'>
-                <span className='navlink selected'>Home</span>
-                <span className='navlink'>About</span>
+                <a href='/' className='navlink selected'>Home</a>
+                <a href='/about' className='navlink'>About</a>
+                <a href='/new' className='navlink'>New</a>
             </div>
             <div className='twitter'>
                 <a href={props.twitterBioUri} target='_blank' rel='noopener noreferrer' style={{textDecoration: 'none'}}><span className="fab fa-twitter fa-sm icon" ></span></a>

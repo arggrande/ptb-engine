@@ -62,12 +62,13 @@
   font-family: 'Karla';
   font-size: 0.85rem;
   font-weight: bold;
-
+  text-decoration: none;
 }
 
-.selected {
-  color: #d4a259;
+.navlink:active {
+  color: #d4a259
 }
+
 
 .twitter {
   height: 50px;

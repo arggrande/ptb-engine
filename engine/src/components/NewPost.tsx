@@ -1,16 +1,20 @@
 import React, { useState, ChangeEvent } from 'react'
 import MarkdownService from './../services/markdownService';
-
+import moment from 'moment';
+import PostService from '../services/postService';
+import { PostModel } from '../models/PostModel';
+import { navigate } from '@reach/router';
 import './NewPost.css';
 
 export default function NewPost() {
 
   const mdService: MarkdownService = new MarkdownService();
+  const postService: PostService = new PostService();
 
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState({__html: ''});
   const [postTitle, setPostTitle] = useState('');
-  
+
   function parsePostInput(event: ChangeEvent<HTMLTextAreaElement>) {
     setInputText(event.target.value);
 
@@ -26,8 +30,17 @@ export default function NewPost() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>){
 
-    
-    event.preventDefault();
+    const model: PostModel = {
+      id: 10,
+      title: postTitle,
+      body: inputText,
+      date: moment().toDate()
+    }
+
+    postService.addPost(model);
+
+    navigate('/');
+
   }
 
   return (

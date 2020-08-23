@@ -4,7 +4,7 @@ import NewPost from './NewPost';
 
 test('Main render of New Post', () => {
 
-  const { getByText } = render(<NewPost />)
+  const { getByPlaceholderText } = render(<NewPost />)
 
-  expect(getByText('New Post')).toBeInTheDocument();
+  expect(getByPlaceholderText('Begin writing your post...')).toBeInTheDocument();
 })

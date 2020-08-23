@@ -1,0 +1,22 @@
+.newPostContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 10%
+}
+
+.titleInput {
+  line-height: 2rem;
+  font-size: x-large;
+  padding: 1.2rem;
+  width: 100%;
+}
+
+.postInput {
+  margin-top: 30px;
+  width: 100%;
+  padding: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}

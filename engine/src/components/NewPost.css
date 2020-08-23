@@ -45,3 +45,15 @@
   align-self: flex-start;
   justify-self: flex-start;
 }
+
+input[type=submit] {
+  margin-top: 30px;
+  padding: 10px;
+  width: 100px;
+  background-color: #666;
+  color: white;
+  font-weight: bold;
+  font-family: 'Karla';
+  font-size: large;
+  text-transform: uppercase;
+}

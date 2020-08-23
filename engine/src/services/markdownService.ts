@@ -1,4 +1,4 @@
-import Showdown, { Converter } from 'showdown';
+import { Converter } from 'showdown';
 import DOMPurify from 'dompurify';
 
 export default class MarkdownService {

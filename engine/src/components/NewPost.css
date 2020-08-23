@@ -20,3 +20,23 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
+
+.htmlOutput {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 100%;
+  border: 1px solid black;
+  height: 500px;
+  padding: 1.2rem;
+
+}
+
+.markdownContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.markdownLabel {
+  align-self: flex-start;
+  justify-self: flex-start;
+}

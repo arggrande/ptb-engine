@@ -7,10 +7,14 @@ import { Router } from '@reach/router';
 import NewPost from './components/NewPost';
 import AboutMe from './components/About';
 import Home from './components/Home';
+import Showdown from 'showdown';
 
 import './App.css';
 
 function App() {
+
+
+  Showdown.setFlavor('github');
   
   let service: PostService = new PostService();
   let posts: PostModel[] = service.getPosts();

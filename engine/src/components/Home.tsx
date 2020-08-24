@@ -1,8 +1,9 @@
 import React from 'react'
 import { PostModel } from '../models/PostModel'
 import PostItem from './PostItem'
-export default function Home(props: HomeProps) {
 
+export default function Home(props: HomeProps) {
+  
   return (
     <div className='columnTwo'>
     {
@@ -16,5 +17,6 @@ export default function Home(props: HomeProps) {
 }
 
 interface HomeProps {
-  posts: PostModel[]
+  posts: PostModel[],
 }
+

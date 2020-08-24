@@ -5,13 +5,13 @@ import ClampLines from  'react-clamp-lines';
 
 
 export default function PostItem(props: PostItemProps) {
-
+  console.log(props.date);
 
   return (
     
     <article className='postItemContainer'>
       <header className='postTitle'>
-        <time className='postDate'>{moment(props.date).format("MMMM d, YYYY")}</time>
+        <time className='postDate' data-testid='dateRenderer'>{moment(props.date).format("MMMM Do YYYY")}</time>
         <h2>{props.title}</h2>
       </header>
       <div className='postBody'>

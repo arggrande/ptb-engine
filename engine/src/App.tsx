@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PostService from './services/postService';
-import { PostModel } from './models/PostModel';
 import Sidebar from './components/Sidebar';
 import logo from './assets/pt-logo.jpg'
 import { Router } from '@reach/router';
@@ -10,18 +9,28 @@ import Home from './components/Home';
 import Showdown from 'showdown';
 
 import './App.css';
+import MarkdownService from './services/markdownService';
+import { PostModel } from './models/PostModel';
 
 function App() {
 
-
   Showdown.setFlavor('github');
-  
-  let service: PostService = new PostService();
-  let posts: PostModel[] = service.getPosts();
-  const HomeRoute: any = () => <Home posts={posts} />
 
-  const NewRoute: any = () => <NewPost />
+  let postService: PostService = new PostService();
+  let markdownSerivce: MarkdownService = new MarkdownService();
+
+  
+  let response = postService.getPosts();
+  const [data, setData] = useState<PostState>({posts: response});
+
+  const HomeRoute: any = () => <Home posts={data.posts} />
+  const NewRoute: any = () => <NewPost onPostComplete={onPostComplete} postService={postService} markdownService={markdownSerivce} />
   const AboutRoute: any = () => <AboutMe />
+
+  function onPostComplete(): void {
+    let newData = postService.getPosts();
+    setData({posts: newData});
+  }
 
   return (
     <div className='mainContainer'>
@@ -37,6 +46,10 @@ function App() {
 
     </div>
   );
+}
+
+interface PostState {
+  posts: PostModel[]
 }
 
 export default App;

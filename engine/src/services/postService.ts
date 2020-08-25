@@ -31,7 +31,12 @@ export default class PostService {
     ]
 
     getPosts(): PostModel[] {
+        this.samplePosts.sort(this.sortDate);
         return this.samplePosts;
+    }
+
+    sortDate(first: PostModel, second: PostModel): number {
+        return second.date.getTime() - first.date.getTime();
     }
 
     addPost(model: PostModel) {

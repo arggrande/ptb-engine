@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PostService from './services/postService';
 import Sidebar from './components/Sidebar';
 import logo from './assets/pt-logo.jpg'

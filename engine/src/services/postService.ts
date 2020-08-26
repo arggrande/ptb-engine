@@ -47,8 +47,8 @@ export default class PostService {
         this.samplePosts.push(model);
     }
 
-    getPostByTitle(title: string) : PostModel | undefined {
-        let post =  this.samplePosts.find(f => f.title === title);
+    getPostByTitle(titleKey: string) : PostModel | undefined {
+        let post =  this.samplePosts.find(f => f.titleKey === titleKey);
         return post;
     }
 }

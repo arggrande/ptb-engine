@@ -13,7 +13,7 @@ function Post(props: PostProps) {
     const markdownService: MarkdownService = new MarkdownService();
     const postService: PostService = new PostService();
 
-    const post: PostModel | undefined = postService.getPostByTitle(props.title ?? 'notfound');
+    const post: PostModel | undefined = postService.getPostByTitle(props.titleKey ?? 'notfound');
 
     if(post === undefined) {
         // reroute to 404 page
@@ -27,7 +27,7 @@ function Post(props: PostProps) {
     return (
         <article className='article' >
             <h4>{moment(post.date).format(Constants.DefaultDateFormat)}</h4>
-            <h3>{props.title}</h3>
+            <h3>{post.title}</h3>
             <RenderedBody />
         </article>
         
@@ -35,7 +35,7 @@ function Post(props: PostProps) {
 }
 
 interface PostProps extends RouteComponentProps {
-    title?: string;
+    titleKey?: string;
 }
 
 export default Post;

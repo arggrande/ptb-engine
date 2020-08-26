@@ -9,7 +9,7 @@ export default function Home(props: HomeProps) {
     <div className='columnTwo'>
     {
       props.posts.map(f => {
-        return <PostItem date={f.date} title={f.title} body={f.body} key={f.id} />
+        return <PostItem date={f.date} title={f.title} body={f.body} titleKey={f.titleKey} key={f.titleKey} />
       })
     }
     

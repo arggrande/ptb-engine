@@ -47,7 +47,7 @@ function App() {
           <HomeRoute path='/'/>
           <NewRoute path='/new'/>
           <AboutRoute path='/about'/>
-          <PostRoute path='/:title'/>
+          <PostRoute path='/:titleKey'/>
           <NotFoundRoute path='/404'/>
       </Router>
 

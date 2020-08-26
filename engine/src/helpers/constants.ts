@@ -1,3 +1,3 @@
 export default class Constants {
-  public static readonly DefaultDateFormat: string = 'MMMM Do YYYYs';
+  public static readonly DefaultDateFormat: string = 'MMMM Do YYYY';
 }

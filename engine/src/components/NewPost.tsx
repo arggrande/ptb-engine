@@ -47,7 +47,6 @@ export default function NewPost(props: NewPostProps) {
     }
 
     postService.addPost(model);
-    console.log(model);
     props.onPostComplete();
     navigate('/');
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { PostModel } from '../models/PostModel'
 import PostItem from './PostItem'
+import { RouteComponentProps } from '@reach/router'
 
 export default function Home(props: HomeProps) {
   
@@ -16,7 +17,7 @@ export default function Home(props: HomeProps) {
   )
 }
 
-interface HomeProps {
+interface HomeProps extends RouteComponentProps {
   posts: PostModel[],
 }
 

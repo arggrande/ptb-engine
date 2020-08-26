@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import PostService from './services/postService';
 import Sidebar from './components/Sidebar';
 import logo from './assets/pt-logo.jpg'
-import { Router } from '@reach/router';
+import { Router, RouteComponentProps } from '@reach/router';
 import NewPost from './components/NewPost';
 import AboutMe from './components/About';
 import Home from './components/Home';
+import Post from './components/Post';
+import NotFound from './components/NotFound';
+
 import Showdown from 'showdown';
 
 import './App.css';
@@ -23,9 +26,11 @@ function App() {
   let response = postService.getPosts();
   const [data, setData] = useState<PostState>({posts: response});
 
-  const HomeRoute: any = () => <Home posts={data.posts} />
-  const NewRoute: any = () => <NewPost onPostComplete={onPostComplete} postService={postService} markdownService={markdownSerivce} />
-  const AboutRoute: any = () => <AboutMe />
+  const HomeRoute: any = (props: RouteComponentProps) => <Home {...props} posts={data.posts} />
+  const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} postService={postService} markdownService={markdownSerivce} />
+  const AboutRoute: any = (props: RouteComponentProps) => <AboutMe {...props} />
+  const PostRoute: any = (props: RouteComponentProps) => <Post {...props}/>
+  const NotFoundRoute: any = (props: RouteComponentProps) => <NotFound {...props} />
 
   function onPostComplete(): void {
     let newData = postService.getPosts();
@@ -42,6 +47,8 @@ function App() {
           <HomeRoute path='/'/>
           <NewRoute path='/new'/>
           <AboutRoute path='/about'/>
+          <PostRoute path='/:title'/>
+          <NotFoundRoute path='/404'/>
       </Router>
 
     </div>

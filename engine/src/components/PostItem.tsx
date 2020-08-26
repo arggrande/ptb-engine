@@ -2,7 +2,7 @@ import React from 'react';
 import './PostItem.css'
 import moment from 'moment';
 import ClampLines from  'react-clamp-lines';
-
+import Constants from '../helpers/constants';
 
 export default function PostItem(props: PostItemProps) {
   console.log(props.date);
@@ -11,7 +11,7 @@ export default function PostItem(props: PostItemProps) {
     
     <article className='postItemContainer'>
       <header className='postTitle'>
-        <time className='postDate' data-testid='dateRenderer'>{moment(props.date).format("MMMM Do YYYY")}</time>
+        <time className='postDate' data-testid='dateRenderer'>{moment(props.date).format(Constants.DefaultDateFormat)}</time>
         <h2>{props.title}</h2>
       </header>
       <div className='postBody'>

@@ -28,10 +28,19 @@ export default function NewPost(props: NewPostProps) {
     setPostTitle(event.target.value);
   }
 
+  function stripTitle(input: string): string {
+    const strippedText = input.replace(/['!"#$%&\\'()*+,\-./:;<=>?@[\\\]^_`{|}~']/g,"");
+    
+    const result = strippedText.replace(/ /gi, '-');
+
+    return result.toLowerCase();
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>){
 
     const model: PostModel = {
       id: 10,
+      titleKey: stripTitle(postTitle),
       title: postTitle,
       body: inputText,
       date: moment().toDate()

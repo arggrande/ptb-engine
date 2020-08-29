@@ -14,7 +14,7 @@ export default function PostItem(props: PostItemProps) {
     <article className='postItemContainer'>
       <header className='postTitle'>
         <time className='postDate' data-testid='dateRenderer'>{moment(props.date).format(Constants.DefaultDateFormat)}</time>
-        <h2><a href={path}>{props.title}</a></h2>
+        <h2><a className='postLink' href={path}>{props.title}</a></h2>
       </header>
       <div className='postBody'>
         <ClampLines text={props.body} id={'clamp'} className='postBody' ellipsis='...' lines={3} innerElement={'p'} buttons={false} />

@@ -18,7 +18,12 @@
 
 .postTitle {
   font-size: 1.3rem;
-  font-family: 'Crimson Text'
+  font-family: 'Crimson Text';
+}
+
+.postLink, .postLink:visited {
+  text-decoration: none;
+  color: black;
 }
 
 .postBody {

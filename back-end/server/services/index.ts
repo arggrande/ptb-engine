@@ -1,6 +1,7 @@
-import { getAllPosts, addPost} from './postService'
+import { getAllPosts, addPost, getPostByTitle} from './postService'
 
 export {
   getAllPosts,
-  addPost
+  addPost,
+  getPostByTitle
 }

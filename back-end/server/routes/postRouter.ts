@@ -1,5 +1,5 @@
 import Express from 'express';
-import { getAllPosts, addPost } from '../services'
+import { getAllPosts, addPost, getPostByTitle } from '../services'
 
 
 let router = Express.Router();
@@ -9,6 +9,12 @@ router.get('/posts', async function(req, res) {
 
 
   res.send(posts);
+});
+
+router.get('/posts/:title', async function(req, res) {
+  console.log(`getting title: ${req.params.title}`);
+  const post = await getPostByTitle(req.params.title);
+  res.send(post);
 });
 
 router.post('/posts', async function(req, response) {

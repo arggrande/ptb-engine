@@ -37,6 +37,11 @@ export const getAllPosts = async(): Promise<PostModel[]> => {
     return samplePosts;
 }
 
+export const getPostById = async(id: number): Promise<PostModel | undefined> => {
+    const item = samplePosts.find(f => f.id === id);
+    return item;
+}
+
 const sortDate = (first: PostModel, second: PostModel): number => {
     return second.date.getTime() - first.date.getTime();
 }

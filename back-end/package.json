@@ -5,6 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "npm run tsc && node server/server.js",
+    "start2": "node dist/index",
+    "webpack": "webpack --config webpack.config.ts",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +24,10 @@
     "typescript": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.7.0"
+    "eslint": "^7.7.0",
+    "ts-loader": "^8.0.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
   }
 }

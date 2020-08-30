@@ -1,5 +1,6 @@
-import PostService from './postService'
+import { getAllPosts, addPost} from './postService'
 
 export {
-  PostService
+  getAllPosts,
+  addPost
 }

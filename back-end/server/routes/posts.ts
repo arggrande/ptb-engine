@@ -1,5 +1,5 @@
 import Express from 'express';
-import PostService from '../services/postService'
+import { PostService } from '../services'
 
 const postService = new PostService();
 

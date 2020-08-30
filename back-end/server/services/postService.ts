@@ -1,4 +1,4 @@
-import { PostModel } from '../models/PostModel'
+import { PostModel } from '../models'
 
 export default class PostService {
 

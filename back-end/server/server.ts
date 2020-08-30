@@ -1,5 +1,5 @@
 import Express from 'express';
-import Posts from './routes/posts';
+import { Posts } from './routes';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';

@@ -1,5 +1,5 @@
-import Posts from './posts';
+import PostRouter from './postRouter';
 
 export {
-  Posts
+  PostRouter
 };

@@ -1,5 +1,5 @@
 import Express from 'express';
-import { Posts } from './routes';
+import { PostRouter } from './routes';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -27,7 +27,9 @@ app.get('/', function(request, response) {
   response.send('hello... is it me youre looking for? yes it is.')
 });
 
-app.use(Posts);
+
+// Configure routing
+app.use(PostRouter);
 
 const server = app.listen(PORT, function() {
   console.log(`listening... on port ${PORT}`);

@@ -46,8 +46,9 @@ const sortDate = (first: PostModel, second: PostModel): number => {
     return second.date.getTime() - first.date.getTime();
 }
 
-export const addPost = async (model: PostModel) => {
+export const addPost = async (model: PostModel): Promise<void> => {
     samplePosts.push(model);
+    return;
 }
 
 export const getPostByTitle = async (titleKey: string) : Promise<PostModel | undefined>  => {

@@ -10,7 +10,7 @@ router.get('/posts', async function(req, res) {
   res.status(200).send(posts);
 });
 
-router.get('/posts/:title', async function(req, res) {
+router.get('/post/:title', async function(req, res) {
 
   const post = await getPostByTitle(req.params.title);
   if(post === undefined) {
@@ -20,12 +20,13 @@ router.get('/posts/:title', async function(req, res) {
   res.status(200).send(post);
 });
 
-router.post('/posts', async function(req, response) {
+router.post('/post', async function(req, response) {
 
   try {
-    const post: PostModel = req.body.post;
+    const post: PostModel = req.body;
+    post.date = new Date();
     await addPost(post);
-    response.status(201);
+    response.status(201).send();
   }
   catch (e) {
     response.status(404).send(e.message);

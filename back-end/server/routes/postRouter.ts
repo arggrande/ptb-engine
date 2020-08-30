@@ -13,7 +13,6 @@ router.get('/posts', async function(req, res) {
 router.get('/posts/:title', async function(req, res) {
 
   const post = await getPostByTitle(req.params.title);
-  console.log(post);
   if(post === undefined) {
     res.status(404).send('not found');
   }

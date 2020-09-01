@@ -30,7 +30,7 @@ app.get('/', function(request, response) {
 
 
 // Configure routing
-app.use(PostRouter);
+app.use('/posts', PostRouter);
 
 app.use(errorHandler);
 app.use(notFoundHandler);

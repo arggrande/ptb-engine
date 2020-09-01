@@ -1,16 +1,19 @@
 import Express from 'express';
 import { getAllPosts, addPost, getPostByTitle } from '../services'
 import { PostModel } from '../models';
-
+import { checkJwt } from '../middleware'
 let router = Express.Router();
 
-router.get('/posts', async function(req, res) {
+router.get('/', async function(req, res) {
 
   let posts = await getAllPosts();
   res.status(200).send(posts);
 });
 
-router.get('/post/:title', async function(req, res) {
+// mount auth here
+router.use(checkJwt);
+
+router.get('/:title', async function(req, res) {
 
   const post = await getPostByTitle(req.params.title);
   if(post === undefined) {
@@ -20,7 +23,7 @@ router.get('/post/:title', async function(req, res) {
   res.status(200).send(post);
 });
 
-router.post('/post', async function(req, response) {
+router.post('/', async function(req, response) {
 
   try {
     const post: PostModel = req.body;

@@ -3,6 +3,7 @@ import { PostRouter } from './routes';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
+import { errorHandler, notFoundHandler } from './middleware';
 
 dotenv.config();
 
@@ -30,6 +31,9 @@ app.get('/', function(request, response) {
 
 // Configure routing
 app.use(PostRouter);
+
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 const server = app.listen(PORT, function() {
   console.log(`listening... on port ${PORT}`);

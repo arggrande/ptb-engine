@@ -1,6 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
 import { Link } from '@reach/router';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Sidebar(props: SidebarProps) {
 
@@ -14,7 +15,11 @@ export default function Sidebar(props: SidebarProps) {
             }
         }}
     />
+    const { loginWithRedirect } = useAuth0();
 
+    const LoginButton = () => {
+        return <button onClick={() => loginWithRedirect()}>Log In</button>
+    }
     return (
         <div className='container'>
             <img className='logo' src={props.avatarUri} alt='Avatar' />
@@ -29,6 +34,9 @@ export default function Sidebar(props: SidebarProps) {
             </div>
             <div className='twitter'>
                 <a href={props.twitterBioUri} target='_blank' rel='noopener noreferrer' style={{textDecoration: 'none'}}><span className="fab fa-twitter fa-sm icon" ></span></a>
+            </div>
+            <div>
+                <LoginButton />
             </div>
             
         </div>

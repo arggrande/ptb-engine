@@ -8,12 +8,12 @@ import AboutMe from './components/About';
 import Home from './components/Home';
 import Post from './components/Post';
 import NotFound from './components/NotFound';
-
-import Showdown from 'showdown';
-
-import './App.css';
 import MarkdownService from './services/markdownService';
 import { PostModel } from './models/PostModel';
+import Showdown from 'showdown';
+import { Auth0Provider } from '@auth0/auth0-react';
+import './App.css';
+
 
 function App() {
 
@@ -22,7 +22,6 @@ function App() {
   let postService: PostService = new PostService();
   let markdownSerivce: MarkdownService = new MarkdownService();
 
-  
   let response = postService.getPosts();
   const [data, setData] = useState<PostState>({posts: response});
 
@@ -37,22 +36,28 @@ function App() {
     setData({posts: newData});
   }
 
+  let auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN || 'nothing';
+  let auth0ClientId = process.env.REACT_APP_AUTH0_CLIENTID || 'nothing';
+
   return (
-    <div className='mainContainer'>
-      <div className='columnOne'>
-        <Sidebar title='Pending Technical' subText='A Programmers Life' avatarUri={logo} twitterBioUri='https://twitter.com/arggrande' />
+    <Auth0Provider domain={auth0Domain} clientId={auth0ClientId} redirectUri={window.location.origin}> 
+      <div className='mainContainer'>
+        <div className='columnOne'>
+          <Sidebar title='Pending Technical' subText='A Programmers Life' avatarUri={logo} twitterBioUri='https://twitter.com/arggrande' />
+        </div>
+
+        <Router>
+            <HomeRoute path='/'/>
+            <NewRoute path='/new'/>
+            <AboutRoute path='/about'/>
+            <PostRoute path='/:titleKey'/>
+            <NotFoundRoute path='/404'/>
+        </Router>
+
       </div>
 
-      <Router>
-          <HomeRoute path='/'/>
-          <NewRoute path='/new'/>
-          <AboutRoute path='/about'/>
-          <PostRoute path='/:titleKey'/>
-          <NotFoundRoute path='/404'/>
-      </Router>
-
-    </div>
-  );
+    </Auth0Provider>
+     );
 }
 
 interface PostState {

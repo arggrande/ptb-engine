@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import PostService from './services/postService';
-import Sidebar from './components/Sidebar';
+import { Sidebar, NewPost, About, Home, Post, NotFound } from './components';
 import logo from './assets/pt-logo.jpg'
 import { Router, RouteComponentProps } from '@reach/router';
-import NewPost from './components/NewPost';
-import AboutMe from './components/About';
-import Home from './components/Home';
-import Post from './components/Post';
-import NotFound from './components/NotFound';
-import MarkdownService from './services/markdownService';
+import { markdownService, postService } from './services';
 import { PostModel } from './models/PostModel';
 import Showdown from 'showdown';
 import { Auth0Provider } from '@auth0/auth0-react';
@@ -19,20 +13,20 @@ function App() {
 
   Showdown.setFlavor('github');
 
-  let postService: PostService = new PostService();
-  let markdownSerivce: MarkdownService = new MarkdownService();
+  let postSvc: postService = new postService();
+  let mdSvc: markdownService = new markdownService();
 
-  let response = postService.getPosts();
+  let response = postSvc.getPosts();
   const [data, setData] = useState<PostState>({posts: response});
 
   const HomeRoute: any = (props: RouteComponentProps) => <Home {...props} posts={data.posts} />
-  const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} postService={postService} markdownService={markdownSerivce} />
-  const AboutRoute: any = (props: RouteComponentProps) => <AboutMe {...props} />
+  const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} postService={postSvc} markdownService={mdSvc} />
+  const AboutRoute: any = (props: RouteComponentProps) => <About {...props} />
   const PostRoute: any = (props: RouteComponentProps) => <Post {...props}/>
   const NotFoundRoute: any = (props: RouteComponentProps) => <NotFound {...props} />
 
   function onPostComplete(): void {
-    let newData = postService.getPosts();
+    let newData = postSvc.getPosts();
     setData({posts: newData});
   }
 

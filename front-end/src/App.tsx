@@ -2,31 +2,35 @@ import React, { useState } from 'react';
 import { Sidebar, NewPost, About, Home, Post, NotFound } from './components';
 import logo from './assets/pt-logo.jpg'
 import { Router, RouteComponentProps } from '@reach/router';
-import { markdownService, postService } from './services';
+import { markdownService, getAllPosts } from './services';
 import { PostModel } from './models/PostModel';
 import Showdown from 'showdown';
 import { Auth0Provider } from '@auth0/auth0-react';
 import './App.css';
 
-
 function App() {
 
   Showdown.setFlavor('github');
 
-  let postSvc: postService = new postService();
   let mdSvc: markdownService = new markdownService();
 
-  let response = postSvc.getPosts();
-  const [data, setData] = useState<PostState>({posts: response});
+  
+  const [data, setData] = useState<PostState>({});
+  loadPosts();
 
-  const HomeRoute: any = (props: RouteComponentProps) => <Home {...props} posts={data.posts} />
-  const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} postService={postSvc} markdownService={mdSvc} />
+  const HomeRoute: any = (props: RouteComponentProps) => <Home {...props} />
+  const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} markdownService={mdSvc} />
   const AboutRoute: any = (props: RouteComponentProps) => <About {...props} />
   const PostRoute: any = (props: RouteComponentProps) => <Post {...props}/>
   const NotFoundRoute: any = (props: RouteComponentProps) => <NotFound {...props} />
 
-  function onPostComplete(): void {
-    let newData = postSvc.getPosts();
+  async function loadPosts() {
+    let response = await getAllPosts();
+    setData({posts: response});
+  }
+
+  async function onPostComplete() {
+    let newData = await getAllPosts();
     setData({posts: newData});
   }
 
@@ -55,7 +59,7 @@ function App() {
 }
 
 interface PostState {
-  posts: PostModel[]
+  posts?: PostModel[]
 }
 
 export default App;

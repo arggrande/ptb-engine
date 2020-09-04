@@ -1,7 +1,9 @@
 import markdownService from './markdownService';
-import postService from './postService';
+import {getAllPosts, getPostByTitle, addPost} from './postService';
 
 export {
   markdownService,
-  postService
+  getAllPosts,
+  getPostByTitle,
+  addPost
 }

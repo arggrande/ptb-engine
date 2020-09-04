@@ -1,6 +1,6 @@
 import React from 'react';
 import MarkdownService from '../services/markdownService';
-import PostService from '../services/postService';
+import { getPostByTitle } from '../services';
 import moment from 'moment';
 import Constants from '../helpers/constants';
 import {RouteComponentProps} from '@reach/router';
@@ -11,9 +11,8 @@ import NotFound from './NotFound';
 
 function Post(props: PostProps) {
     const markdownService: MarkdownService = new MarkdownService();
-    const postService: PostService = new PostService();
 
-    const post: PostModel | undefined = postService.getPostByTitle(props.titleKey ?? 'notfound');
+    const post: PostModel | undefined = getPostByTitle(props.titleKey ?? 'notfound');
 
     if(post === undefined) {
         // reroute to 404 page

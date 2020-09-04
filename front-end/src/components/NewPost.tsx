@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react'
 import MarkdownService from './../services/markdownService';
 import moment from 'moment';
-import PostService from '../services/postService';
+import { addPost } from '../services';
 import { PostModel } from '../models/PostModel';
 import { navigate } from '@reach/router';
 import './NewPost.css';
@@ -9,7 +9,6 @@ import './NewPost.css';
 export default function NewPost(props: NewPostProps) {
 
   const mdService: MarkdownService = props.markdownService;
-  const postService: PostService = props.postService;
 
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState({__html: ''});
@@ -46,7 +45,7 @@ export default function NewPost(props: NewPostProps) {
       date: moment().toDate()
     }
 
-    postService.addPost(model);
+    addPost(model);
     props.onPostComplete();
     navigate('/');
 
@@ -70,7 +69,6 @@ export default function NewPost(props: NewPostProps) {
 }
 
 interface NewPostProps {
-  postService: PostService;
   markdownService: MarkdownService;
   onPostComplete: () => void;
 }

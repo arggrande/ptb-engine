@@ -9,8 +9,15 @@ if(baseEndpoint === ''){
 export const getAllPosts = async(): Promise<PostModel[]> => {
 
     let response: PostModel[] = await fetch(`${baseEndpoint}/posts`)
-        .then((res: Response) => res.json());
+        .then(async (res: Response) => {
+            let result: PostModel[] = await res.json();
 
+            // Why on earth do I need to do this?! Damn you json.
+            result.forEach(f => f.date = new Date(f.date));
+            return result;
+        });
+
+    response.sort(sortDate);
     return response;
            
 }

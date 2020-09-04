@@ -11,8 +11,6 @@ export const getAllPosts = async(): Promise<PostModel[]> => {
     let response: PostModel[] = await fetch(`${baseEndpoint}/posts`)
         .then((res: Response) => res.json());
 
-    console.log(response);
-
     return response;
            
 }

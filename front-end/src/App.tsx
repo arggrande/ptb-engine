@@ -16,7 +16,7 @@ function App() {
 
   
   const [data, setData] = useState<PostState>({});
-  loadPosts();
+
 
   const HomeRoute: any = (props: RouteComponentProps) => <Home {...props} />
   const NewRoute: any = (props: RouteComponentProps) => <NewPost {...props} onPostComplete={onPostComplete} markdownService={mdSvc} />
@@ -24,10 +24,7 @@ function App() {
   const PostRoute: any = (props: RouteComponentProps) => <Post {...props}/>
   const NotFoundRoute: any = (props: RouteComponentProps) => <NotFound {...props} />
 
-  async function loadPosts() {
-    let response = await getAllPosts();
-    setData({posts: response});
-  }
+
 
   async function onPostComplete() {
     let newData = await getAllPosts();
